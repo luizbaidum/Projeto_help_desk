@@ -1,3 +1,6 @@
+<?php require_once("validador_acesso.php"); ?>
+<!-- precisa ser require_once() para que ele MATE a aplicação em caso de erro e não permita segunda requisição do validador -->
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -16,14 +19,7 @@
 
   <body>
 
-    <nav class="navbar navbar-dark bg-dark">
-
-      <a class="navbar-brand" href="#">
-
-        <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        App Help Desk
-      </a>
-    </nav>
+    <?php include_once("menu.php"); ?>
 
     <div class="container">    
 
@@ -42,12 +38,16 @@
 
                 <div class="col-6 d-flex justify-content-center">
 
-                  <img src="img/formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="abrir_chamado.php">
+
+                    <img src="img/formulario_abrir_chamado.png" width="70" height="70"><span>Abrir chamado</span></a>
                 </div>
 
                 <div class="col-6 d-flex justify-content-center">
+
+                  <a href="consultar_chamado.php">
                   
-                  <img src="img/formulario_consultar_chamado.png" width="70" height="70">
+                    <img src="img/formulario_consultar_chamado.png" width="70" height="70"><span>Consultar chamados</span></a>
                 </div>
               </div>
             </div>

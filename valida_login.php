@@ -1,5 +1,11 @@
 <?php
 
+	//Iicia uma sessão (acessa região de memória do servidor e puxa pro navegador)
+	session_start();
+
+	//$_SESSION['x'] = 'teste';
+	//array $_SESSION fica disponível para todos os scripts PHP da sessão
+
 	//$_POST é uma superglobal
 	$_POST['email']; 
 	$_POST['senha'];
@@ -21,16 +27,17 @@
 		$user['email'];
 		$user['senha'];
 		
-
 		if($_POST['email'] == $user['email'] && $_POST['senha'] == $user['senha'])
 			$usuarioAutenticado = true;
 		}
 
 	if($usuarioAutenticado == true) {
-		echo 'DEU CERTO';
+		$_SESSION['autenticado'] = 'SIM';
+		header('Location: home.php');
 	} else {
-		//dados pars retorno após falha no login
+		//dados para retorno após falha no login
 		header('Location: index.php?login=erro');
+		$_SESSION['autenticado'] = 'NAO';
 	}
 	//fim: lógica para validação
 ?>	

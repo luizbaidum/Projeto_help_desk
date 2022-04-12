@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-dark bg-dark">
 
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home.php">
 
         <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
@@ -60,13 +60,18 @@
 
                   //execução do retorno após falha no login
                   //isset verifica se a variável está declarada
-                  if(isset($_GET['login']) && $_GET['login'] == 'erro') {
-                    echo '<span>Verificar e-mail e/ou senha</span>';  
+                  if(isset($_GET['login']) && $_GET['login'] == 'erro') {  
                   
                 ?>
                   <div class="text-danger" style="text-align: center;">Verificar e-mail e/ou senha</div>
 
                 <?php 
+
+                  } else if(isset($_GET['login']) && $_GET['login'] == 'erro2'){ ?>
+
+                  <div class="text-danger" style="text-align: center;">Faça login antes de acessar páginas protegidas</div> 
+
+                <?php
 
                   };
 
