@@ -38,20 +38,41 @@
               <div class="row">
 
                 <div class="col">
+
+                <?php
+
+                  //execução do retorno após falha no login
+                  //isset verifica se a variável está declarada
+                  if(isset($_GET['chamado']) && $_GET['chamado'] == 'sucesso') {  
+                  
+                ?>
+                  <div class="text-success" style="text-align: center;">Chamado gravado com sucesso!</div>
+
+                <?php 
+
+                  } else if(isset($_GET['chamado']) && $_GET['chamado'] != 'sucesso'){ ?>
+
+                  <div class="text-danger" style="text-align: center;">Houve um erro no chamado. Tente novamente.</div> 
+
+                <?php
+
+                  };
+
+                ?>
                   
                   <form method="post" action="registra_chamado.php">
 
                     <div class="form-group">
 
                       <label>Título</label>
-                      <input type="text" class="form-control" placeholder="Título">
+                      <input type="text" class="form-control" placeholder="Título" name="titulo">
                     </div>
                     
                     <div class="form-group">
 
                       <label>Categoria</label>
 
-                      <select class="form-control">
+                      <select class="form-control" name="categoria">
                         <option>Criação Usuário</option>
                         <option>Impressora</option>
                         <option>Hardware</option>
@@ -64,7 +85,7 @@
 
                       <label>Descrição</label>
 
-                      <textarea class="form-control" rows="3"></textarea>
+                      <textarea name="descricao" class="form-control" rows="3"></textarea>
                     </div>
 
                     <div class="row mt-5">
