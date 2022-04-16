@@ -14,3 +14,7 @@ Criação e aplicação do script para logoff e página logoff. <br>
 Atualização: 13/04 <br>
 Melhorias na página abrir_chamado.php, <br>
 E novo código próprio para o script registra_chamado.php. <br>
+
+Atualização: 15/04 <br>
+registra_chamado.php consegue reconhecer campo não preenchido e alerta usuário, além de não gravar chamados com campos não preenchidos. <br>
+

@@ -14,7 +14,14 @@
     'Descrição:' => $_POST['descricao'],
   ];
 
-  $textoFormatado = [];
+  if($_POST['titulo'] == '' || $_POST['descricao'] == '') {
+
+    $_GET['chamado'] = 'erro';
+    header('Location: abrir_chamado.php?chamado=erro');
+
+  } else {
+
+    $textoFormatado = [];
 
   foreach ($mensagemOriginal as $campo => $formatando) {
 
@@ -36,4 +43,7 @@
 
   $_GET['chamado'] = 'sucesso';
   header('Location: abrir_chamado.php?chamado=sucesso');
+
+  };
+  
 ?>

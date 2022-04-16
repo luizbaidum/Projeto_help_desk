@@ -50,7 +50,7 @@
 
                 <?php 
 
-                  } else if(isset($_GET['chamado']) && $_GET['chamado'] != 'sucesso'){ ?>
+                  } else if(isset($_GET['chamado']) && $_GET['chamado'] == 'erro'){ ?>
 
                   <div class="text-danger" style="text-align: center;">Houve um erro no chamado. Tente novamente.</div> 
 

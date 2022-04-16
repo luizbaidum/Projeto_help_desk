@@ -1,6 +1,24 @@
 <?php require_once("validador_acesso.php"); ?>
 <!-- precisa ser require_once() para que ele MATE a aplicação em caso de erro e não permita segunda requisição do validador -->
 
+<?php
+  
+  $chamados = array();
+
+  //abre o arquivo.txt 
+  $arquivo = fopen('arquivo.txt', 'r');
+
+  //percorre cada linha escrita no arquivo.txt
+  //feof() testa linha por linha até o fim de um arquivo
+  while(!feof($arquivo)) {
+
+    //fgets() recupera o que está na linha em teste pelo feof()
+    $registro = fgets($arquivo); 
+    $chamados[] = $registro;
+  };
+
+  fclose($arquivo);
+?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -34,31 +52,33 @@
             </div>
             
             <div class="card-body">
-              
+
+              <?php
+
+                foreach($chamados as $chamado) {
+              ?>
+
+              <?php
+
+                 $chamadoDados = explode('#', $chamado);
+
+                 if(count($chamadoDados) < 3) {
+                  continue;
+                 }
+              ?>
               <div class="card mb-3 bg-light">
 
                 <div class="card-body">
 
-                  <h5 class="card-title">Título do chamado...</h5>
+                  <h5 class="card-title"><?= $chamadoDados[0] ?></h5>
 
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamadoDados[1] ?></h6>
 
-                  <p class="card-text">Descrição do chamado...</p>
+                  <p class="card-text"><?= $chamadoDados[2] ?></p>
                 </div>
               </div>
 
-              <div class="card mb-3 bg-light">
-
-                <div class="card-body">
-
-                  <h5 class="card-title">Título do chamado...</h5>
-
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
+              <?php } ?>
 
               <div class="row mt-5">
 
