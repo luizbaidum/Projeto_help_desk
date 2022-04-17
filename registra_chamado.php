@@ -5,9 +5,9 @@
   //$categoria = str_replace('#', '-', $_POST['categoria']);
   //$descricao = str_replace('#', '-', $_POST['descricao']);
   //e cria-se uma variavel concatenando todas essas variaveis + PHP_EOL no final
-  
-  $_POST;
 
+  session_start();
+  
   $mensagemOriginal = [
     'Título:' => $_POST['titulo'],
     'Categoria:' => $_POST['categoria'],
@@ -29,6 +29,9 @@
 
     $textoFormatado[$campo] = $mensagemOriginal[$campo];
   };
+
+  //insere ID do usuário logado no chamado
+  array_unshift($textoFormatado, $_SESSION['id']);
 
   $solicitacaoUsuario = implode(' #', $textoFormatado);
 

@@ -1,5 +1,4 @@
 <?php
-
 	//Iicia uma sessão (acessa região de memória do servidor e puxa pro navegador)
 	session_start();
 
@@ -10,34 +9,56 @@
 	$_POST['email']; 
 	$_POST['senha'];
 
+	$usuarioId = null;
+
+	$usuarioAutenticado = false;
+
+	$usuarioPerfilId = null;
+
+	//define nível de acesso dos usuários
+	$perfis = [
+		1 => 'Adm',
+		2 => 'User',	
+	];
+
 	//acesso aos usuários do sistema //geralmente busca do banco de dados
 	$usuarios_app = array(
-		array('email' => 'luiz@teste.com', 'senha' => 1234),
-		array('email' => 'eliana@teste.com', 'senha' => 1234),
-		array('email' => 'pascoal@teste.com', 'senha' => 1234),
-		array('email' => 'menininha@teste.com', 'senha' => 1234),
+		array('id' => 1, 'email' => 'luiz@teste.com', 'senha' => 1234, 'perfilId' => 1),
+		array('id' => 2,'email' => 'eliana@teste.com', 'senha' => 1234, 'perfilId' => 1),
+		array('id' => 3,'email' => 'pascoal@teste.com', 'senha' => 1234, 'perfilId' => 2),
+		array('id' => 4,'email' => 'menininha@teste.com', 'senha' => 1234, 'perfilId' => 2),
 	);
 
 	//inicio: lógica para validação
-	$usuarioAutenticado = false;
-
-	//transforma a array de arrays em duas arrays separadas
+	//transforma a array de arrays em 3 arrays separadas ($user['email'], $user['senha'], $user['id'])
 	foreach ($usuarios_app as $user) {
 
-		$user['email'];
-		$user['senha'];
-		
-		if($_POST['email'] == $user['email'] && $_POST['senha'] == $user['senha'])
+		if($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']) {
+
 			$usuarioAutenticado = true;
-		}
+
+			$usuarioId = $user['id'];
+
+			$usuarioPerfilId = $user['perfilId'];
+
+			$emailLogado = $user['email'];
+		}; };
 
 	if($usuarioAutenticado == true) {
 		$_SESSION['autenticado'] = 'SIM';
+
+		$_SESSION['id'] = $usuarioId;
+
+		$_SESSION['perfilId'] = $usuarioPerfilId;
+
+		$_SESSION['email'] = $emailLogado;
+
 		header('Location: home.php');
 	} else {
 		//dados para retorno após falha no login
-		header('Location: index.php?login=erro');
 		$_SESSION['autenticado'] = 'NAO';
+
+		header('Location: index.php?login=erro');
 	}
 	//fim: lógica para validação
 ?>	
