@@ -6,18 +6,33 @@
   $chamados = array();
 
   //abre o arquivo.txt 
-  $arquivo = fopen('arquivo.txt', 'r');
+  $arquivo = fopen('../../../APP_PROJETO_HELP_DESK/arquivo.txt', 'r');
 
   //percorre cada linha escrita no arquivo.txt
   //feof() testa linha por linha até o fim de um arquivo
   while(!feof($arquivo)) {
 
     //fgets() recupera o que está na linha em teste pelo feof()
-    $registro = fgets($arquivo); 
-    $chamados[] = $registro;
+    $registro = fgets($arquivo);
+
+    if($_SESSION['perfilId'] == 1) {
+
+      array_push($chamados, $registro);
+
+    } else {
+
+      $chamadoDoUsuario = explode('#', $registro);
+
+      if($_SESSION['id'] == $chamadoDoUsuario[0]) {
+
+        array_push($chamados, $registro);
+
+      };
+    };
   };
 
   fclose($arquivo);
+
 ?>
 <html>
   <head>
@@ -53,21 +68,9 @@
             
             <div class="card-body">
 
-              <?php
-
-                foreach($chamados as $chamado) {
-              ?>
-
-              <?php
+              <?php foreach($chamados as $chamado) {
 
                  $chamadoDados = explode('#', $chamado);
-
-                 if($_SESSION['perfilId'] == 2) {
-
-                  if($_SESSION['id'] != $chamadoDados[0]) {
-                    continue;
-                  }; 
-                 };
 
                  if(count($chamadoDados) < 3) {
                   continue;

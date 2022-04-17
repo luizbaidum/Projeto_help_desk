@@ -38,7 +38,7 @@
   $solicitacaoUsuario = $solicitacaoUsuario . PHP_EOL;
 
   //funções nativas para gerar arquivo
-  $arquivo = fopen('arquivo.txt', 'a');
+  $arquivo = fopen('../../../APP_PROJETO_HELP_DESK/arquivo.txt', 'a');
 
   fwrite($arquivo, $solicitacaoUsuario);
 
