@@ -1,7 +1,5 @@
 ## Projeto_help_desk
 
-Em desenvolvimento.
-
 Trata-se de um aplicativo web com tratamento de login e criação de chamados para um suporte
 Linguaguens: PHP
 Estrutura: HTML + CSS
@@ -20,3 +18,8 @@ registra_chamado.php consegue reconhecer campo não preenchido e alerta usuário
 
 Atualização: 17/04 <br>
 Inserido níveis de acesso e melhorias no menu. <br>
+
+Atualização: 17/04 v2 <br>
+Por segurança o script relacionado a login e o arquivo de dados onde os chamados ficam gravados foram movidos para uma pasta fora do public_html. 
+
+Lançamento final do APP. v1.0
