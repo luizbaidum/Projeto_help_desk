@@ -18,3 +18,5 @@ E novo código próprio para o script registra_chamado.php. <br>
 Atualização: 15/04 <br>
 registra_chamado.php consegue reconhecer campo não preenchido e alerta usuário, além de não gravar chamados com campos não preenchidos. <br>
 
+Atualização: 17/04 <br>
+Inserido níveis de acesso e melhorias no menu. <br>
