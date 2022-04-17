@@ -1,8 +1,10 @@
 ## Projeto_help_desk
 
-Trata-se de um aplicativo web com tratamento de login e criação de chamados para um suporte
-Linguaguens: PHP
-Estrutura: HTML + CSS
+Trata-se de um aplicativo web com tratamento de login e criação de chamados para um suporte <br>
+Linguaguens: PHP <br> 
+Estrutura: HTML + CSS <br>
+
+Trabalhamos laços de repetição, controle de sessão (session_start), envio de formulários, registro de dados em arquivo de texto externo. <br>
 
 Atualização: 11/04 <br>
 Pequenas melhorias no layout, <br>
