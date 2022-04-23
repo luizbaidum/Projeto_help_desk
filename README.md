@@ -6,6 +6,9 @@ Estrutura: HTML + CSS <br>
 
 Trabalhamos laços de repetição, controle de sessão (session_start), envio de formulários, registro de dados em arquivo de texto externo. <br>
 
+### Atenção: <br>
+<p>O projeto original, por segurança, colocava os arquivos arquivo.txt e valida_login.php em uma pasta fora do diretório Projeto Help Disk e requisitava esses arquivos via require_once(). Mas, para efeitos práticos, os códigos aqui foram todos alterados para que os arquivos fiquem na mesma pasta sem atrapalhar a execução do aplicativo. Lembre-se: isso não é seguro.</p>
+
 Atualização: 11/04 <br>
 Pequenas melhorias no layout, <br>
 Aplicaçao de include() para deixar código menos verboso, <br>
